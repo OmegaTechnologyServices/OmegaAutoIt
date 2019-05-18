@@ -52,8 +52,8 @@ Built for AutoIt Version: 3.3.14.5
 		 ; Select skill by changing 0 to 1. Only one marked at a time.
 		 ; Failure to do so will result in unreliability in script.
 
-		 $Respite = 0
-		 $Smokescreen = 1
+		 $Respite = 0 ; You can train Respite anywhere
+		 $Smokescreen = 1 ; Recommend training Smokescreen at Dugald Raccoons or Tir foxes
 
 		 ; Input your skill hotkeys wrapped in " "
 		 $RespiteHotkey = "1"
