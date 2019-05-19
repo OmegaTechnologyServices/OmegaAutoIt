@@ -19,7 +19,7 @@ Built for AutoIt Version: 3.3.14.5
 
    Check for updates here
 
-   For questions find me on Discord
+   For questions find me on Discord @ Mastodon#3218
 
 
    You can utilize mousePOS to get your x,y positions
