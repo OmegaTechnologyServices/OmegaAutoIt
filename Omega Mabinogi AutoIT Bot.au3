@@ -34,7 +34,7 @@ Built for AutoIt Version: 3.3.14.5
 
 #cs
 ;	#--------------------------------------------------------------------------------------------------------#
-		; THIS IS CURRENTLY NOT FUNCTIONAL. DO NOT BOTHER WITH THESE SETTINGS. SIMPLY A PLACEHOLDER.
+
 	  #include <ImageSearch.au3>
 
 	  global $y = 0, $x = 0
@@ -79,7 +79,7 @@ Built for AutoIt Version: 3.3.14.5
 		 $Smokescreen = 0 ; Recommend training Smokescreen at Dugald Raccoons or Tir foxes
 
 		 $Tumble = 1 ; Recommend training Tumble at Dugald Raccoons or Tir foxes. Enter current use count for in battle
-			$TumbleBattleUse = 176
+			$TumbleBattleUse = 180
 
 		 ; Enter initial variable values
 
@@ -307,6 +307,7 @@ $boost = 1 * $expboost
 
 ; Check if Battle requirements have been met, and continue to increase UseCount
 	   ElseIf $usecount < $usereq And $BattleCount >= $BattleReq Then
+			Sleep(5000) ; Sleep additional time to avoid loss of use
 			Send($SkillHotkey)
 			 $usecount = $usecount + 1
 			 ; Start Cooldown
