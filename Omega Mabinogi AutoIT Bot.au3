@@ -2,8 +2,9 @@
 
 Omega Mabinogi AutoIT Bot
 	Preview Build 1.3.3
-		Currently supports training of Respite or  with auto rank up. Follow instructions on
-		MabiMods.net -
+		Currently supports training of Respite, Smokescreen, and Tumble with auto rank up. Follow instructions on
+		MabiMods.net - https://mabimods.net/index.php?topic=18118.0
+		GitHub release page - https://github.com/OmegaTechnologyServices/OmegaAutoIt/blob/master/Omega%20Mabinogi%20AutoIT%20Bot.au3
 
 Built for AutoIt Version: 3.3.14.5
 
@@ -13,13 +14,13 @@ Built for AutoIt Version: 3.3.14.5
 
 
  Script Function:
-   This script is for use in the game Mabinogi. This will automatically use and train skills that only require you to use them
+   This script is for us in the game Mabinogi. This will automatically use and train skills that only require you to use them
    it will also rank up the skill if you assign it coordinates. Be careful only to change variables inside the box.
    The script will become more dynamic with more skills in the future over time and updates will be posted to github
 
    Check for updates here
 
-   For questions find me on Discord @ Mastodon#3218
+   For questions find me on Discord
 
 
    You can utilize mousePOS to get your x,y positions
@@ -31,7 +32,7 @@ Built for AutoIt Version: 3.3.14.5
 
 ;							############### IMAGE SEARCH PARAMETERS ################
 ;							############ SET UI TO [URBAN MAN] [OPAQUE]#############
-
+;							######### CURRENTLY NOT FUNCTIONAL DO NOT USE ##########
 #cs
 ;	#--------------------------------------------------------------------------------------------------------#
 
