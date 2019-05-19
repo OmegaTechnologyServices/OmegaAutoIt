@@ -49,11 +49,12 @@ Built for AutoIt Version: 3.3.14.5
 
 #ce
 
-;							############### DO NOT TOUCH THESE ARRAYS ################
+;							############### DO NOT TOUCH THESE  ################
 ; 	#--------------------------------------------------------------------------------------------------------#
 
 ; Skill Rank numeration           N F E D C B A 9 8 7  6  5  4  3  2  1
 		 Global $SkillRank[16] = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+		 Global $rN=0,$rF=1,$rE=2,$rD=3,$rC=4,$rB=5,$rA=6,$r9=7,$r8=8,$r7=9,$r6=10,$r5=11,$r4=12,$r3=13,$r2=14,$r1=1
 
 ; Skill requirement vairables. Do not make changes to these
 		 Global $RespiteReq[16] = [2,10,13,20,25,29,34,50,67,134,271,556,556,1000,1000,1000]
@@ -78,12 +79,12 @@ Built for AutoIt Version: 3.3.14.5
 		 $Smokescreen = 0 ; Recommend training Smokescreen at Dugald Raccoons or Tir foxes
 
 		 $Tumble = 1 ; Recommend training Tumble at Dugald Raccoons or Tir foxes. Enter current use count for in battle
-			$TumbleBattleUse = 156
+			$TumbleBattleUse = 176
 
 		 ; Enter initial variable values
 
-		 $yourskillrank = 9 ; Enter your current skill rank. Set based on numerical value related to chart above
-		 $currentskilluses = 196 ; Enter current skill use from the menu
+		 $yourskillrank = $r7 ; Enter your current skill rank in variable form. Example $r7. See above for assignment.
+		 $currentskilluses = 220 ; Enter current skill use from the menu
 		 $expboost = 4 ; Enter current skill multiplier from potions, items or talent
 
 		 ; Enter XY position for Advance button located inside skill box. This stays static.
@@ -255,7 +256,7 @@ $boost = 1 * $expboost
 	; Tumble specific variable assignment
 
 		$battlecount = $TumbleBattleUse / $expboost
-		$BattleCooldown = $TumbleCooldown - 5000
+		$BattleCooldown = $TumbleCooldown - 4000
 
  While $Tumble = 1
 
