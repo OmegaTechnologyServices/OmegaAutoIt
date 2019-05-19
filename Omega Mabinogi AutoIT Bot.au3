@@ -1,7 +1,7 @@
 #cs ----------------------------------------------------------------------------
 
 Omega Mabinogi AutoIT Bot
-	Preview Build 1.3.2
+	Preview Build 1.3.3
 		Currently supports training of Respite or  with auto rank up. Follow instructions on
 		MabiMods.net -
 
@@ -74,18 +74,18 @@ Built for AutoIt Version: 3.3.14.5
 		 ; Select skill by changing 0 to 1. Only one marked at a time.
 		 ; Failure to do so will result in unreliability in script.
 
-		 $Respite = 0 ; You can train Respite anywhere
+		 $Respite = 1 ; You can train Respite anywhere
 
 		 $Smokescreen = 0 ; Recommend training Smokescreen at Dugald Raccoons or Tir foxes
 
-		 $Tumble = 1 ; Recommend training Tumble at Dugald Raccoons or Tir foxes. Enter current use count for in battle
-			$TumbleBattleUse = 180
+		 $Tumble = 0 ; Recommend training Tumble at Dugald Raccoons or Tir foxes. Enter current use count for in battle
+			$TumbleBattleUse = 36
 
 		 ; Enter initial variable values
 
-		 $yourskillrank = $r7 ; Enter your current skill rank in variable form. Example $r7. See above for assignment.
-		 $currentskilluses = 220 ; Enter current skill use from the menu
-		 $expboost = 4 ; Enter current skill multiplier from potions, items or talent
+		 $yourskillrank = $r3 ; Enter your current skill rank in variable form. Example $r7. See above for assignment.
+		 $currentskilluses = 20 ; Enter current skill use from the menu
+		 $expboost = 2 ; Enter current skill multiplier from potions, items or talent
 
 		 ; Enter XY position for Advance button located inside skill box. This stays static.
 
@@ -134,8 +134,8 @@ Built for AutoIt Version: 3.3.14.5
 			$SmokescreenRankCooldown = 15200
 
 		 ; Tumble Variables
-			$TumbleCooldown = 10500
-			$TumbleRankCooldown = 9700
+			$TumbleCooldown = 11500
+			$TumbleRankCooldown = 10700
 
 ;	#--------------------------------------------------------------------------------------------------------#
 
@@ -178,6 +178,8 @@ $boost = 1 * $expboost
 	  If $usecount < $usereq Then
 	; Utilize skill and incriment variables
 		 Send($SkillHotkey)
+		 sleep(500)
+		 Send("{ESC}")
 		 $usecount = $usecount + 1
 		 ; Start Cooldown
 			Sleep ($SkillCooldown)
@@ -256,7 +258,7 @@ $boost = 1 * $expboost
 	; Tumble specific variable assignment
 
 		$battlecount = $TumbleBattleUse / $expboost
-		$BattleCooldown = $TumbleCooldown - 4000
+		$BattleCooldown = $TumbleCooldown - 2500
 
  While $Tumble = 1
 
