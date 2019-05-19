@@ -1,7 +1,7 @@
 #cs ----------------------------------------------------------------------------
 
 Omega Mabinogi AutoIT Bot
-	Preview Build 1.3.0
+	Preview Build 1.3.2
 		Currently supports training of Respite or  with auto rank up. Follow instructions on
 		MabiMods.net -
 
@@ -311,7 +311,7 @@ $boost = 1 * $expboost
 			Send($SkillHotkey)
 			 $usecount = $usecount + 1
 			 ; Start Cooldown
-				Sleep ($SkillCooldown)
+				Sleep ($BattleCooldown)
 
 ; Increase skill rank, get new usereq value, reset counters
 			ElseIf $usecount >= $usereq and $BattleCount >= $BattleReq Then; Compare variables for rank
