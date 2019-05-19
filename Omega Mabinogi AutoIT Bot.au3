@@ -34,7 +34,7 @@ Built for AutoIt Version: 3.3.14.5
 
 #cs
 ;	#--------------------------------------------------------------------------------------------------------#
-
+		; THIS IS CURRENTLY NOT FUNCTIONAL. DO NOT BOTHER WITH THESE SETTINGS. SIMPLY A PLACEHOLDER.
 	  #include <ImageSearch.au3>
 
 	  global $y = 0, $x = 0
