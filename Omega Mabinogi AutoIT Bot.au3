@@ -186,6 +186,8 @@ $boost = 1 * $expboost
 	  If $usecount < $usereq Then
 	; Utilize skill and incriment variables
 		 Send($SkillHotkey)
+		 Sleep(500)
+		 Send("{ESC}")
 		 $usecount = $usecount + 1
 		 ; Start Cooldown
 			Sleep ($SkillCooldown)
