@@ -2,7 +2,7 @@
 
 Omega Mabinogi AutoIT Bot
 	Preview Build 1.4.0
-		Currently supports training of Respite or  with auto rank up. Follow instructions on
+		Currently supports training of Respite, Tumble, and Smokescreen with auto rank up. Follow instructions on
 		MabiMods.net - https://mabimods.net/index.php?topic=18118.0
 
 		Get Updated code from GitHub (Auto-Update coming in the future)
