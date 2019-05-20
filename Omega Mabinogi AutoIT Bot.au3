@@ -38,6 +38,8 @@ Built for AutoIt Version: 3.3.14.5
 		 #AutoIt3Wrapper_UseX64 = Y
 		 #include <ImageSearch.au3>
 
+		 ;Enable Image Search by changing 0 to 1. Currently not functional INSIDE the game. Working on fix.
+			$ImageSearch = 0
 		 global $y = 0, $x = 0
 
 
@@ -100,6 +102,17 @@ Built for AutoIt Version: 3.3.14.5
 
 		 $TumbleX = 2475
 		 $TumbleY = 1245
+
+		 ; Enter XY position for confirmation message box
+
+		 $RespiteConfirmX = 1225
+		 $RespiteConfirmY = 765
+
+		 $SmokescreenConfirmX = 1235
+		 $SmokescreenConfirmY = 795
+
+		 $TumbleConfirmX = 1235
+		 $TumbleConfirmY = 795
 
 		 ; Select skill by changing 0 to 1. Only one marked at a time.
 		 ; Failure to do so will result in unreliability in script.
@@ -184,7 +197,12 @@ $boost = 1 * $expboost
 			MouseMove ( $skillX, $skillY, 500)
 			MouseClick ("Left")
 			   sleep (800)
+		 If $ImageSearch = 1 Then
 			Call ("CheckForImage")
+		 ElseIf $ImageSearch = 0 Then
+			MouseMove ( $RespiteConfirmX, $RespiteConfirmY, 500)
+			MouseClick ( "Left")
+		 EndIf
 				$iSkill = $iSkill + 1
 			    $iReq = $iReq + 1
 			    $usereq = $SkillReq[$iReq] / $expboost
@@ -234,7 +252,12 @@ $boost = 1 * $expboost
 			MouseMove ( $skillX, $skillY, 500)
 			MouseClick ("Left")
 			   sleep (800)
+		 If $ImageSearch = 1 Then
 			Call ("CheckForImage")
+		 ElseIf $ImageSearch = 0 Then
+			MouseMove ( $SmokescreenConfirmX, $SmokescreenConfirmY, 500)
+			MouseClick ( "Left")
+		 EndIf
 				$iSkill = $iSkill + 1
 			    $iReq = $iReq + 1
 			    $usereq = $SkillReq[$iReq] / $expboost
@@ -309,7 +332,12 @@ $boost = 1 * $expboost
 			ElseIf $usecount >= $usereq and $BattleCount >= $BattleReq Then; Compare variables for rank
 			MouseMove ( $skillX, $skillY, 500)
 			   sleep (800)
+		 If $ImageSearch = 1 Then
 			Call ("CheckForImage")
+		 ElseIf $ImageSearch = 0 Then
+			MouseMove ( $TumbleConfirmX, $TumbleConfirmY, 500)
+			MouseClick ( "Left")
+		 EndIf
 				$iSkill = $iSkill + 1
 			    $iReq = $iReq + 1
 			    $usereq = $SkillReq[$iReq] / $expboost
