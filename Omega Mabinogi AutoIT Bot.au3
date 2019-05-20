@@ -20,6 +20,8 @@ Built for AutoIt Version: 3.3.14.5
    it will also rank up the skill if you assign it coordinates. Be careful only to change variables inside the box.
    The script will become more dynamic with more skills in the future over time and updates will be posted to github
 
+   Check for updates here
+
    For questions find me on Discord @ OmegaMastodon#3218
 
 
@@ -77,28 +79,28 @@ Built for AutoIt Version: 3.3.14.5
 		 ; Select skill by changing 0 to 1. Only one marked at a time.
 		 ; Failure to do so will result in unreliability in script.
 
-		 $Respite = 0 ; You can train Respite anywhere
+		 $Respite = 1; You can train Respite anywhere
 
 		 $Smokescreen = 0 ; Recommend training Smokescreen at Dugald Raccoons or Tir foxes
 
-		 $Tumble = 1 ; Recommend training Tumble at Dugald Raccoons or Tir foxes. Enter current use count for in battle
-			$TumbleBattleUse = 180
+		 $Tumble = 0 ; Recommend training Tumble at Dugald Raccoons or Tir foxes. Enter current use count for in battle
+			$TumbleBattleUse =0
 
 		 ; Enter initial variable values
 
-		 $yourskillrank = $r7 ; Enter your current skill rank. Set based on numerical value related to chart above
-		 $currentskilluses = 406 ; Enter current skill use from the menu
-		 $expboost = 4 ; Enter current skill multiplier from potions, items or talent
+		 $yourskillrank = $r2 ; Enter your current skill rank. Set based on numerical value related to chart above
+		 $currentskilluses = 244 ; Enter current skill use from the menu
+		 $expboost = 2 ; Enter current skill multiplier from potions, items or talent
 
 		 ; Enter XY position for Advance button located inside skill box. This stays static.
 
-		 $RespiteX = 2475
-		 $RespiteY = 1200
+		 $RespiteX = 2470
+		 $RespiteY = 930
 
 		 $SmokescreenX = 2475
 		 $SmokescreenY = 1065
 
-		 $TumbleX = 2475
+		 $TumbleX = 2470
 		 $TumbleY = 1245
 
 		 ; Enter XY position for confirmation message box
@@ -123,8 +125,8 @@ Built for AutoIt Version: 3.3.14.5
 		 ; Debugging related variables. Leave these alone if you
 		 ; don't know what you're doing.
 
-		 $Debug = 1
-		 $ClientForeground = 0
+		 $Debug = 0
+		 $ClientForeground = 1
 ;	#--------------------------------------------------------------------------------------------------------#
 
 ;							############### DO NOT TOUCH THESE VARIABLES ################
