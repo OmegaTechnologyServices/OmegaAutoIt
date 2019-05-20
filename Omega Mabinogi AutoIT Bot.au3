@@ -1,10 +1,12 @@
 #cs ----------------------------------------------------------------------------
 
 Omega Mabinogi AutoIT Bot
-	Preview Build 1.3.3
-		Currently supports training of Respite, Smokescreen, and Tumble with auto rank up. Follow instructions on
+	Preview Build 1.4.0
+		Currently supports training of Respite or  with auto rank up. Follow instructions on
 		MabiMods.net - https://mabimods.net/index.php?topic=18118.0
-		GitHub release page - https://github.com/OmegaTechnologyServices/OmegaAutoIt/blob/master/Omega%20Mabinogi%20AutoIT%20Bot.au3
+
+		Get Updated code from GitHub (Auto-Update coming in the future)
+		https://github.com/OmegaTechnologyServices/OmegaAutoIt/edit/master/Omega%20Mabinogi%20AutoIT%20Bot.au3
 
 Built for AutoIt Version: 3.3.14.5
 
@@ -20,7 +22,7 @@ Built for AutoIt Version: 3.3.14.5
 
    Check for updates here
 
-   For questions find me on Discord
+   For questions find me on Discord @ OmegaMastodon#3218
 
 
    You can utilize mousePOS to get your x,y positions
@@ -31,26 +33,26 @@ Built for AutoIt Version: 3.3.14.5
 #ce ----------------------------------------------------------------------------
 
 ;							############### IMAGE SEARCH PARAMETERS ################
-;							############ SET UI TO [URBAN MAN] [OPAQUE]#############
-;							######### CURRENTLY NOT FUNCTIONAL DO NOT USE ##########
-#cs
+;							############ SET UI TO [NEON GREEN][OPAQUE]#############
 ;	#--------------------------------------------------------------------------------------------------------#
+		 #AutoIt3Wrapper_UseX64 = Y
+		 #include <ImageSearch.au3>
 
-	  #include <ImageSearch.au3>
+		 global $y = 0, $x = 0
 
-	  global $y = 0, $x = 0
 
-	  Func checkForImage()
-	  Local $search = _ImageSearch('Capture.PNG', 0, $x, $y, 0)
-	  If $search = 1 Then
-	  MouseMove($x, $y, 10)
-	  MouseClick("Left")
-	  EndIf
-	  EndFunc
+		 Func checkForImage()
+		 Local $search = _ImageSearch('AdvanceButton.bmp', 1, $x, $y, 0)
+		 If $search = 1 Then
+		 MouseMove($x, $y, 500)
+		 MouseClick("Left")
+			ElseIf $search = 0 Then
+				Call ("CheckForImage")
+		 EndIf
+		 EndFunc
 
-#ce
 
-;							############### DO NOT TOUCH THESE  ################
+;							############### DO NOT TOUCH THESE ARRAYS ################
 ; 	#--------------------------------------------------------------------------------------------------------#
 
 ; Skill Rank numeration           N F E D C B A 9 8 7  6  5  4  3  2  1
@@ -75,18 +77,18 @@ Built for AutoIt Version: 3.3.14.5
 		 ; Select skill by changing 0 to 1. Only one marked at a time.
 		 ; Failure to do so will result in unreliability in script.
 
-		 $Respite = 1 ; You can train Respite anywhere
+		 $Respite = 0 ; You can train Respite anywhere
 
 		 $Smokescreen = 0 ; Recommend training Smokescreen at Dugald Raccoons or Tir foxes
 
-		 $Tumble = 0 ; Recommend training Tumble at Dugald Raccoons or Tir foxes. Enter current use count for in battle
-			$TumbleBattleUse = 36
+		 $Tumble = 1 ; Recommend training Tumble at Dugald Raccoons or Tir foxes. Enter current use count for in battle
+			$TumbleBattleUse = 180
 
 		 ; Enter initial variable values
 
-		 $yourskillrank = $r3 ; Enter your current skill rank in variable form. Example $r7. See above for assignment.
-		 $currentskilluses = 20 ; Enter current skill use from the menu
-		 $expboost = 2 ; Enter current skill multiplier from potions, items or talent
+		 $yourskillrank = $r7 ; Enter your current skill rank. Set based on numerical value related to chart above
+		 $currentskilluses = 406 ; Enter current skill use from the menu
+		 $expboost = 4 ; Enter current skill multiplier from potions, items or talent
 
 		 ; Enter XY position for Advance button located inside skill box. This stays static.
 
@@ -99,16 +101,8 @@ Built for AutoIt Version: 3.3.14.5
 		 $TumbleX = 2475
 		 $TumbleY = 1245
 
-		 ; Enter XY position for confirmation message box
-
-		 $RespiteConfirmX = 1225
-		 $RespiteConfirmY = 765
-
-		 $SmokescreenConfirmX = 1235
-		 $SmokescreenConfirmY = 795
-
-		 $TumbleConfirmX = 1235
-		 $TumbleConfirmY = 795
+		 ; Select skill by changing 0 to 1. Only one marked at a time.
+		 ; Failure to do so will result in unreliability in script.
 
 		 ; Input your skill hotkeys wrapped in " "
 		 $RespiteHotkey = "1"
@@ -118,8 +112,8 @@ Built for AutoIt Version: 3.3.14.5
 		 ; Debugging related variables. Leave these alone if you
 		 ; don't know what you're doing.
 
-		 $Debug = 0
-		 $ClientForeground = 1
+		 $Debug = 1
+		 $ClientForeground = 0
 ;	#--------------------------------------------------------------------------------------------------------#
 
 ;							############### DO NOT TOUCH THESE VARIABLES ################
@@ -135,8 +129,8 @@ Built for AutoIt Version: 3.3.14.5
 			$SmokescreenRankCooldown = 15200
 
 		 ; Tumble Variables
-			$TumbleCooldown = 11500
-			$TumbleRankCooldown = 10700
+			$TumbleCooldown = 10500
+			$TumbleRankCooldown = 9700
 
 ;	#--------------------------------------------------------------------------------------------------------#
 
@@ -179,8 +173,6 @@ $boost = 1 * $expboost
 	  If $usecount < $usereq Then
 	; Utilize skill and incriment variables
 		 Send($SkillHotkey)
-		 sleep(500)
-		 Send("{ESC}")
 		 $usecount = $usecount + 1
 		 ; Start Cooldown
 			Sleep ($SkillCooldown)
@@ -192,8 +184,7 @@ $boost = 1 * $expboost
 			MouseMove ( $skillX, $skillY, 500)
 			MouseClick ("Left")
 			   sleep (800)
-			MouseMove ( $RespiteConfirmX, $RespiteConfirmY, 500)
-			MouseClick ( "Left")
+			Call ("CheckForImage")
 				$iSkill = $iSkill + 1
 			    $iReq = $iReq + 1
 			    $usereq = $SkillReq[$iReq] / $expboost
@@ -243,8 +234,7 @@ $boost = 1 * $expboost
 			MouseMove ( $skillX, $skillY, 500)
 			MouseClick ("Left")
 			   sleep (800)
-			MouseMove ( $SmokescreenConfirmX, $SmokescreenConfirmY, 500)
-			MouseClick ( "Left")
+			Call ("CheckForImage")
 				$iSkill = $iSkill + 1
 			    $iReq = $iReq + 1
 			    $usereq = $SkillReq[$iReq] / $expboost
@@ -259,7 +249,7 @@ $boost = 1 * $expboost
 	; Tumble specific variable assignment
 
 		$battlecount = $TumbleBattleUse / $expboost
-		$BattleCooldown = $TumbleCooldown - 2500
+		$BattleCooldown = $TumbleCooldown - 5000
 
  While $Tumble = 1
 
@@ -310,19 +300,16 @@ $boost = 1 * $expboost
 
 ; Check if Battle requirements have been met, and continue to increase UseCount
 	   ElseIf $usecount < $usereq And $BattleCount >= $BattleReq Then
-			Sleep(5000) ; Sleep additional time to avoid loss of use
 			Send($SkillHotkey)
 			 $usecount = $usecount + 1
 			 ; Start Cooldown
-				Sleep ($BattleCooldown)
+				Sleep ($SkillCooldown)
 
 ; Increase skill rank, get new usereq value, reset counters
 			ElseIf $usecount >= $usereq and $BattleCount >= $BattleReq Then; Compare variables for rank
 			MouseMove ( $skillX, $skillY, 500)
-			MouseClick ("Left")
 			   sleep (800)
-			MouseMove ( $TumbleConfirmX, $TumbleConfirmY, 500)
-			MouseClick ( "Left")
+			Call ("CheckForImage")
 				$iSkill = $iSkill + 1
 			    $iReq = $iReq + 1
 			    $usereq = $SkillReq[$iReq] / $expboost
