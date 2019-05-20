@@ -16,11 +16,10 @@ Built for AutoIt Version: 3.3.14.5
 
 
  Script Function:
-   This script is for us in the game Mabinogi. This will automatically use and train skills that only require you to use them
-   it will also rank up the skill if you assign it coordinates. Be careful only to change variables inside the box.
+   This script is for use in the game Mabinogi. This will automatically use, train, and rank skills if you assign it coordinates. 
+   Be careful not to change variables in boxes marked "DO NOT TOUCH" or "DO NOT CHANGE". I will be developing a frontend programs in
+   in the future to make this more user friendly. For now you'll have to pretend to be a coder.
    The script will become more dynamic with more skills in the future over time and updates will be posted to github
-
-   Check for updates here
 
    For questions find me on Discord @ OmegaMastodon#3218
 
